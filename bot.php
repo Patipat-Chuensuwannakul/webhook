@@ -13,6 +13,7 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
+			$userId = $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
@@ -23,8 +24,8 @@ if (!is_null($events['events'])) {
 					'text' => $text
 				},
 				{
-          "type" => "text",
-          "text" => $event['source']['userId']
+          'type' => 'text',
+          'text' => $userId
         }
 			];
 
